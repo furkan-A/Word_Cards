@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:words/add_word.dart';
 import 'package:words/learn_words.dart';
 import 'package:words/test_yourself.dart';
 import 'package:words/words_ui.dart';
@@ -31,7 +32,10 @@ class HomePage extends StatelessWidget {
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // Add your onPressed code here!
+            Route route = MaterialPageRoute(builder: (context) {
+              return const AddWord();
+            });
+            Navigator.push(context, route);
           },
           child: const Icon(Icons.add),
           backgroundColor: Colors.green,
@@ -62,7 +66,7 @@ class HomePage extends StatelessWidget {
                     });
                     Navigator.push(context, route);
                   },
-                  child: createButton('Learn Words'),
+                  child: createButton('Learn  Word'),
                 ),
                 const SizedBox(
                   height: 20,
@@ -77,7 +81,7 @@ class HomePage extends StatelessWidget {
                   child: createButton('Test Yourself'),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -97,16 +101,13 @@ class HomePage extends StatelessWidget {
   }
 
   Container createButton(String title) {
-    // String title = "";
     return Container(
       padding:
-          const EdgeInsets.only(left: 30.0, top: 8.0, right: 30.0, bottom: 8.0),
-      // margin: const EdgeInsets.all(10.0),
+          const EdgeInsets.only(left: 70.0, top: 8.0, right: 70.0, bottom: 8.0),
       decoration: BoxDecoration(
         color: Colors.green,
         borderRadius: BorderRadius.circular(25),
       ),
-      // color: Colors.amber,
       child: Text(
         title,
         style: buttonStyle,
