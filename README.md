@@ -1,6 +1,9 @@
-# words
+# Words Cards
 
-A new Flutter project.
+It is a mobile application that helps you improve your vocabulary and learn new technical words.
+
+Developing with Flutter and Dart.
+.
 
 ## Getting Started
 

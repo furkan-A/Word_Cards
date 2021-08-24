@@ -16,11 +16,7 @@ class _WordsState extends State<Words> {
         title: Text(title),
         // backgroundColor: Colors.redAccent[100],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
-      ),
+      body: Center(child: ListView()),
     );
   }
 }
