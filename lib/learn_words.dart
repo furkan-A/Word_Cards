@@ -42,7 +42,7 @@ class _LearnWordState extends State<LearnWord> {
             TextButton(
                 onPressed: () {
                   setState(() {
-                    vocab.nextIndex();
+                    // vocab.nextIndex();
                   });
                 },
                 child: Text(
