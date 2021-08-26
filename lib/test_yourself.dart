@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:words/question_card.dart';
 import 'package:words/vocabulary.dart';
 
+import 'constants.dart';
+
 class Testyourself extends StatefulWidget {
   const Testyourself({Key? key}) : super(key: key);
 
@@ -18,7 +20,10 @@ class _TestyourselfState extends State<Testyourself> {
     return Scaffold(
       backgroundColor: Colors.orange,
       appBar: AppBar(
-        title: Text(title),
+        title: Text(
+          title,
+          style: appBarStyle,
+        ),
         backgroundColor: Colors.orange,
       ),
       body: Center(

@@ -40,6 +40,10 @@ class Vocabulary {
     return wordBank[_index].mean;
   }
 
+  String getDesc() {
+    return wordBank[_index].desc;
+  }
+
   String getRandomMean() {
     return wordBank[rnd.nextInt(wordBank.length)].mean;
   }
