@@ -41,7 +41,10 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.green,
         ),
         appBar: AppBar(
-          title: const Text(_title),
+          title: Text(
+            _title,
+            style: appBarStyle,
+          ),
           backgroundColor: Colors.green[800],
           actions: <Widget>[
             IconButton(
