@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:words/add_word.dart';
 import 'package:words/learn_words.dart';
 import 'package:words/test_yourself.dart';
+import 'package:words/theme.dart';
+import 'package:words/vocabulary.dart';
 import 'package:words/words_ui.dart';
 import 'constants.dart';
 
@@ -14,38 +16,42 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      // theme: ThemeData(accentColor: Colors.grey),
+    return MaterialApp(
+      // theme: theme(),
       home: HomePage(),
     );
   }
 }
 
+// ignore: must_be_immutable
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   static const String _title = "Word Cards";
+  Vocabulary vocab = Vocabulary();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: theme(),
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Route route = MaterialPageRoute(builder: (context) {
-              return const AddWord();
+              return AddWord(vocabulary: vocab);
             });
             Navigator.push(context, route);
           },
-          child: const Icon(Icons.add),
-          backgroundColor: Colors.green,
+          child: const Icon(
+            Icons.add,
+            color: Colors.black,
+          ),
+          backgroundColor: kButtonColor,
         ),
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             _title,
-            style: appBarStyle,
           ),
-          backgroundColor: Colors.green[800],
           actions: <Widget>[
             IconButton(
               onPressed: () {},
@@ -65,7 +71,7 @@ class HomePage extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Route route = MaterialPageRoute(builder: (context) {
-                      return const LearnWord();
+                      return LearnWord(vocabulary: vocab);
                     });
                     Navigator.push(context, route);
                   },
@@ -99,21 +105,6 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Container createButton(String title) {
-    return Container(
-      padding:
-          const EdgeInsets.only(left: 70.0, top: 8.0, right: 70.0, bottom: 8.0),
-      decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: BorderRadius.circular(25),
-      ),
-      child: Text(
-        title,
-        style: buttonStyle,
       ),
     );
   }

@@ -28,6 +28,11 @@ class Vocabulary {
   //     _index++;
   //   }
   // }
+  // void previousIndex() {
+  //   if (_index > 0) {
+  //     _index--;
+  //   }
+  //
 
   String getKey() {
     if (_index + 1 < wordBank.length) {

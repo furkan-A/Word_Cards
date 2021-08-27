@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:words/constants.dart';
 import 'package:words/main.dart';
+
 import 'package:words/vocabulary.dart';
 import 'package:flip_card/flip_card.dart';
 
+// ignore: must_be_immutable
 class LearnWord extends StatefulWidget {
-  const LearnWord({Key? key}) : super(key: key);
+  Vocabulary vocabulary;
+
+  LearnWord({Key? key, required this.vocabulary}) : super(key: key);
 
   @override
-  _LearnWordState createState() => _LearnWordState();
+  // ignore: no_logic_in_create_state
+  _LearnWordState createState() => _LearnWordState(vocabulary: vocabulary);
 }
 
 class _LearnWordState extends State<LearnWord> {
-  static String title = 'Learn Words';
+  final String _title = 'Learn Words';
 
-  Vocabulary vocab = Vocabulary();
-  HomePage hp = const HomePage();
+  Vocabulary vocabulary;
+  _LearnWordState({required this.vocabulary});
+
+  HomePage hp = HomePage();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          title,
-          style: appBarStyle,
-        ),
-        backgroundColor: Colors.redAccent[100],
+      appBar: myAppBar(
+        _title,
       ),
       body: Center(
         child: Column(
@@ -33,13 +36,13 @@ class _LearnWordState extends State<LearnWord> {
           children: <Widget>[
             const Spacer(),
             Expanded(
-              flex: 2,
+              flex: 5,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(120),
+                  borderRadius: BorderRadius.circular(25),
                 ),
                 child: SizedBox(
-                  height: 324,
+                  // height: 512,
                   width: 296,
                   child: FlipCard(
                     front: Card(
@@ -47,17 +50,17 @@ class _LearnWordState extends State<LearnWord> {
                       child: Center(
                         child: Column(
                           children: [
-                            const Spacer(),
+                            const Spacer(flex: 2),
                             Text(
-                              vocab.getKey(),
+                              vocabulary.getKey(),
                               style: wordStyle,
                             ),
-                            const Spacer(),
+                            const Spacer(flex: 1),
                             Text(
-                              vocab.getDesc(),
+                              vocabulary.getDesc(),
                               style: descStyle,
                             ),
-                            const Spacer(),
+                            const Spacer(flex: 1),
                           ],
                         ),
                       ),
@@ -66,7 +69,7 @@ class _LearnWordState extends State<LearnWord> {
                       elevation: 4,
                       child: Center(
                         child: Text(
-                          vocab.getMean(),
+                          vocabulary.getMean(),
                           style: wordStyle,
                         ),
                       ),
@@ -74,6 +77,9 @@ class _LearnWordState extends State<LearnWord> {
                   ),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 16.0,
             ),
             Expanded(
               flex: 1,
@@ -94,8 +100,12 @@ class _LearnWordState extends State<LearnWord> {
             ),
             OutlinedButton.icon(
               style: OutlinedButton.styleFrom(
-                primary: Colors.red[200],
-                side: const BorderSide(color: Colors.white12),
+                textStyle: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Baloo',
+                ),
+                primary: kButtonColor,
+                side: const BorderSide(color: kButtonColor),
               ),
               onPressed: () {},
               icon: const Icon(Icons.save),
@@ -115,17 +125,17 @@ class _LearnWordState extends State<LearnWord> {
     );
   }
 
-  Container createButton(String title) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.redAccent[100],
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        title,
-        style: buttonStyle2,
-      ),
-    );
-  }
+  // Container createButton(String title) {
+  //   return Container(
+  //     padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 8),
+  //     decoration: BoxDecoration(
+  //       color: Colors.redAccent[100],
+  //       borderRadius: BorderRadius.circular(20),
+  //     ),
+  //     child: Text(
+  //       title,
+  //       style: buttonStyle2,
+  //     ),
+  //   );
+  // }
 }

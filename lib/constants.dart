@@ -13,8 +13,42 @@ TextStyle buttonStyle2 = const TextStyle(
 TextStyle wordStyle =
     const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 24);
 
+TextStyle wordStyle2 =
+    const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 18);
 TextStyle descStyle =
     const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 16);
 
 TextStyle appBarStyle = const TextStyle(
-    fontFamily: 'Baloo', fontWeight: FontWeight.bold, letterSpacing: 0.2);
+    fontFamily: 'Baloo',
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0.2);
+
+const kTextColor = Colors.black;
+const kButtonColor = Colors.teal;
+
+AppBar myAppBar(String title) => AppBar(
+      elevation: 0,
+      title: Text(
+        title,
+        style: appBarStyle,
+      ),
+      backgroundColor: Colors.teal,
+    );
+
+Container createButton(String title) {
+  return Container(
+    padding: const EdgeInsets.symmetric(
+      horizontal: 56.0,
+      vertical: 8.0,
+    ),
+    decoration: BoxDecoration(
+      color: kButtonColor,
+      borderRadius: BorderRadius.circular(25),
+    ),
+    child: Text(
+      title,
+      style: buttonStyle,
+    ),
+  );
+}
