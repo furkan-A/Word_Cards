@@ -20,27 +20,31 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10.0),
-      margin: const EdgeInsets.only(bottom: 32, right: 12, left: 12, top: 12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
-      ),
-      child: Column(
-        children: [
-          Text(
-            vocab.getKey(),
-            style: wordStyle,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Option(text: vocab.getRandomMean(), press: () {}),
-          Option(text: vocab.getMean(), press: () {}),
-          Option(text: vocab.getRandomMean(), press: () {}),
-          Option(text: vocab.getRandomMean(), press: () {}),
-        ],
+    return Center(
+      child: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+        margin: const EdgeInsets.only(bottom: 32, right: 12, left: 12, top: 12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(25),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              vocab.getKey(),
+              style: wordStyle,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Option(text: vocab.getRandomMean(), press: () {}),
+            Option(text: vocab.getMean(), press: () {}),
+            Option(text: vocab.getRandomMean(), press: () {}),
+            Option(text: vocab.getRandomMean(), press: () {}),
+          ],
+        ),
       ),
     );
   }

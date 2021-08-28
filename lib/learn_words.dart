@@ -86,11 +86,18 @@ class _LearnWordState extends State<LearnWord> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  createButton('Prev'),
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        // vocab.nextIndex();
+                        vocabulary.previousIndex();
+                      });
+                    },
+                    child: createButton('Prev'),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        vocabulary.nextIndex();
                       });
                     },
                     child: createButton('Next'),
@@ -111,13 +118,6 @@ class _LearnWordState extends State<LearnWord> {
               icon: const Icon(Icons.save),
               label: const Text('Learned'),
             ),
-            // Text(
-            //   vocab.getMean(),
-            //   style: wordStyle,
-            // ),
-            // const SizedBox(
-            //   height: 55,
-            // ),
             const Spacer(),
           ],
         ),

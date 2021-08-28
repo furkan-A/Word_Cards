@@ -17,7 +17,7 @@ class Option extends StatelessWidget {
       onTap: press,
       child: Container(
         margin: const EdgeInsets.only(top: 14.0),
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey),
           borderRadius: BorderRadius.circular(15),

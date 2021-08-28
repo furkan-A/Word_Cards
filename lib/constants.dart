@@ -15,6 +15,11 @@ TextStyle wordStyle =
 
 TextStyle wordStyle2 =
     const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 18);
+
+TextStyle keyStyle =
+    const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 16);
+TextStyle meanStyle =
+    const TextStyle(fontFamily: 'Baloo', color: Colors.black, fontSize: 14);
 TextStyle descStyle =
     const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 16);
 

@@ -59,7 +59,11 @@ class HomePage extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.plus_one_rounded),
+              icon: const Icon(Icons.fence),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.plus_one),
             ),
           ],
         ),
@@ -83,7 +87,7 @@ class HomePage extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Route route = MaterialPageRoute(builder: (context) {
-                      return const Testyourself();
+                      return Testyourself(vocabulary: vocab);
                     });
                     Navigator.push(context, route);
                   },
@@ -95,7 +99,7 @@ class HomePage extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Route route = MaterialPageRoute(builder: (context) {
-                      return const Words();
+                      return Words(vocabulary: vocab);
                     });
                     Navigator.push(context, route);
                   },

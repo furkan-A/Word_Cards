@@ -4,7 +4,7 @@ import 'package:words/word.dart';
 
 class Vocabulary {
   Random rnd = Random();
-  int _index = -1;
+  int _index = 0;
 
   List<Word> wordBank = [
     Word(key: 'inspiration', mean: 'ilham'),
@@ -23,21 +23,22 @@ class Vocabulary {
     wordBank.add(item);
   }
 
-  // void nextIndex() {
-  //   if (_index + 1 < wordBank.length) {
-  //     _index++;
-  //   }
-  // }
-  // void previousIndex() {
-  //   if (_index > 0) {
-  //     _index--;
-  //   }
-  //
+  void nextIndex() {
+    if (_index + 1 < wordBank.length) {
+      _index++;
+    }
+  }
+
+  void previousIndex() {
+    if (_index > 0) {
+      _index--;
+    }
+  }
 
   String getKey() {
-    if (_index + 1 < wordBank.length) {
-      ++_index;
-    }
+    // if (_index + 1 < wordBank.length) {
+    //   ++_index;
+    // }
     return wordBank[_index].key;
   }
 

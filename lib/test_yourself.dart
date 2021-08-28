@@ -5,27 +5,27 @@ import 'package:words/vocabulary.dart';
 
 import 'constants.dart';
 
+// ignore: must_be_immutable
 class Testyourself extends StatefulWidget {
-  const Testyourself({Key? key}) : super(key: key);
+  Vocabulary vocabulary;
+  Testyourself({Key? key, required this.vocabulary}) : super(key: key);
 
   @override
-  _TestyourselfState createState() => _TestyourselfState();
+  _TestyourselfState createState() =>
+      // ignore: no_logic_in_create_state
+      _TestyourselfState(vocabulary: vocabulary);
 }
 
 class _TestyourselfState extends State<Testyourself> {
-  static String title = 'Test Yourself';
-  Vocabulary vocab = Vocabulary();
+  Vocabulary vocabulary;
+  _TestyourselfState({required this.vocabulary});
+  final String _title = 'Test Yourself';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange,
-      appBar: AppBar(
-        title: Text(
-          title,
-          style: appBarStyle,
-        ),
-        backgroundColor: Colors.orange,
-      ),
+      backgroundColor: Colors.teal,
+      appBar: myAppBar(_title),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +35,10 @@ class _TestyourselfState extends State<Testyourself> {
               child: Text.rich(
                 TextSpan(
                   text: "Question 1",
-                  style: TextStyle(fontSize: 24),
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'Baloo',
+                  ),
                   children: [
                     TextSpan(
                       text: "/10",
@@ -53,7 +56,8 @@ class _TestyourselfState extends State<Testyourself> {
             ),
             Expanded(
               child: PageView.builder(
-                itemBuilder: (context, index) => QuestionCard(vocab: vocab),
+                itemBuilder: (context, index) =>
+                    QuestionCard(vocab: vocabulary),
               ),
             ),
           ],
