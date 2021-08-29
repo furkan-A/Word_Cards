@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // theme: theme(),
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
@@ -33,6 +34,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: theme(),
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
@@ -49,21 +51,13 @@ class HomePage extends StatelessWidget {
           backgroundColor: kButtonColor,
         ),
         appBar: AppBar(
-          title: const Text(
-            _title,
-          ),
+          // title: const Text(
+          //   _title,
+          // ),
           actions: <Widget>[
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.share),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.fence),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.plus_one),
             ),
           ],
         ),
@@ -72,6 +66,15 @@ class HomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Text(
+                  'Welcome',
+                  style: caption2,
+                ),
+                Text(
+                  _title,
+                  style: caption,
+                ),
+                const Spacer(flex: 1),
                 GestureDetector(
                   onTap: () {
                     Route route = MaterialPageRoute(builder: (context) {
@@ -105,6 +108,38 @@ class HomePage extends StatelessWidget {
                   },
                   child: createButton('Words'),
                 ),
+                const Spacer(flex: 2),
+                Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(left: 18),
+                      // alignment: Alignment.bottomLeft,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 2,
+                        horizontal: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        // color: kButtonColor,
+                        border: Border.all(color: kButtonColor),
+                        borderRadius: BorderRadius.circular(200),
+                      ),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'send\nfeedback',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            height: 1.2,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+                const SizedBox(height: 22)
               ],
             ),
           ),

@@ -28,10 +28,13 @@ class _WordsState extends State<Words> {
           itemBuilder: (context, index) {
             var containers = vocabulary.wordBank
                 .map((word) => Container(
-                      margin: const EdgeInsets.all(10),
-                      padding: const EdgeInsets.symmetric(
+                      margin: const EdgeInsets.symmetric(
                         horizontal: 12,
                         vertical: 8,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 2,
                       ),
                       decoration: BoxDecoration(
                         border: Border.all(color: kButtonColor),
