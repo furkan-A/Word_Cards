@@ -36,7 +36,7 @@ class _TestyourselfState extends State<Testyourself> {
                 TextSpan(
                   text: "Question 1",
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 32,
                     fontFamily: 'Baloo',
                   ),
                   children: [

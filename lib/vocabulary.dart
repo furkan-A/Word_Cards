@@ -17,10 +17,15 @@ class Vocabulary {
     Word(key: 'spectacular', mean: 'muhteşem'),
     Word(key: 'distinguish', mean: 'ayırmak'),
     Word(key: 'stunning', mean: 'çekici'),
+    Word(key: 'surrogate', mean: 'vekil'),
   ];
 
   void addNewWord(Word item) {
     wordBank.add(item);
+  }
+
+  int size() {
+    return wordBank.length;
   }
 
   void nextIndex() {

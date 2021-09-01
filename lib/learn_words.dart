@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:words/constants.dart';
-import 'package:words/main.dart';
 
 import 'package:words/vocabulary.dart';
 import 'package:flip_card/flip_card.dart';
@@ -22,8 +21,6 @@ class _LearnWordState extends State<LearnWord> {
   Vocabulary vocabulary;
   _LearnWordState({required this.vocabulary});
 
-  HomePage hp = HomePage();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,14 +33,14 @@ class _LearnWordState extends State<LearnWord> {
           children: <Widget>[
             const Spacer(),
             Expanded(
-              flex: 5,
+              flex: 6,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
                 ),
-                child: SizedBox(
+                child: FractionallySizedBox(
                   // height: 512,
-                  width: 296,
+                  widthFactor: 0.90,
                   child: FlipCard(
                     front: Card(
                       elevation: 4,
@@ -86,21 +83,23 @@ class _LearnWordState extends State<LearnWord> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       setState(() {
                         vocabulary.previousIndex();
                       });
                     },
                     child: createButton('Prev'),
+                    borderRadius: BorderRadius.circular(25),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       setState(() {
                         vocabulary.nextIndex();
                       });
                     },
                     child: createButton('Next'),
+                    borderRadius: BorderRadius.circular(25),
                   ),
                 ],
               ),

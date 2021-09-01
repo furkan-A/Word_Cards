@@ -7,14 +7,16 @@ TextStyle buttonStyle = const TextStyle(
     fontFamily: 'Baloo',
     fontWeight: FontWeight.bold,
     letterSpacing: 0.5);
+
 TextStyle buttonStyle2 = const TextStyle(
     color: Colors.white, fontFamily: 'Baloo', fontSize: 16, letterSpacing: 0.3);
+
 TextStyle caption = const TextStyle(
   fontFamily: 'Kalam',
   color: Colors.teal,
-  fontSize: 48,
+  fontSize: 60,
   fontWeight: FontWeight.bold,
-  letterSpacing: 0.2,
+  letterSpacing: 1,
 );
 
 TextStyle caption2 = const TextStyle(
@@ -28,13 +30,13 @@ TextStyle wordStyle =
     const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 24);
 
 TextStyle wordStyle2 =
-    const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 18);
+    const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 24);
 
 TextStyle keyStyle =
-    const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 16);
+    const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 18);
 
 TextStyle meanStyle =
-    const TextStyle(fontFamily: 'Baloo', color: Colors.black87, fontSize: 14);
+    const TextStyle(fontFamily: 'Baloo', color: Colors.black87, fontSize: 16);
 
 TextStyle descStyle =
     const TextStyle(fontFamily: 'Kalam', color: Colors.black, fontSize: 16);
@@ -43,6 +45,7 @@ TextStyle appBarStyle = const TextStyle(
     fontFamily: 'Baloo',
     color: Colors.white,
     fontWeight: FontWeight.bold,
+    fontSize: 22,
     letterSpacing: 0.2);
 
 const kTextColor = Colors.black;

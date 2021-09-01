@@ -17,7 +17,7 @@ class Option extends StatelessWidget {
       onTap: press,
       child: Container(
         margin: const EdgeInsets.only(top: 14.0),
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey),
           borderRadius: BorderRadius.circular(15),
@@ -27,7 +27,7 @@ class Option extends StatelessWidget {
           children: [
             Text(
               text,
-              style: const TextStyle(color: Colors.grey, fontSize: 14),
+              style: TextStyle(color: Colors.grey[700], fontSize: 14),
             ),
             Container(
               height: 26,

@@ -68,6 +68,7 @@ class _WordsState extends State<Words> {
                                   Icons.edit,
                                   color: kButtonColor,
                                 ),
+                                iconSize: 20,
                               ),
                               IconButton(
                                 onPressed: () {},
@@ -75,6 +76,7 @@ class _WordsState extends State<Words> {
                                   Icons.delete,
                                   color: kButtonColor,
                                 ),
+                                iconSize: 20,
                               ),
                             ],
                           ),
