@@ -29,6 +29,10 @@ class Vocabulary {
     wordBank.add(item);
   }
 
+  void editWord(Word word, String newKey, String newMean, String newDesc) {
+    word.editInfo(newKey, newMean, newDesc);
+  }
+
   void carryToLearned() {
     if (size() > 1) {
       Word w = wordBank[getIndex()];
@@ -58,10 +62,6 @@ class Vocabulary {
     previousIndex();
   }
 
-  void editWord(Word word) {
-    // wordBank.
-  }
-
   String getKey() {
     return wordBank[_index].key;
   }
@@ -77,8 +77,4 @@ class Vocabulary {
   String getRandomMean() {
     return wordBank[rnd.nextInt(wordBank.length)].mean;
   }
-
-  // String setKey(String newKey) => key = newKey;
-
-  // String setValue(String newValue) => value = newValue;
 }

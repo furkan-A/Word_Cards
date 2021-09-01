@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:words/constants.dart';
 import 'package:words/new_word.dart';
 import 'package:words/vocabulary.dart';
+import 'package:words/word.dart';
 
 class EditWord extends StatelessWidget {
   Vocabulary vocabulary;
+  Word word;
 
-  EditWord({Key? key, required this.vocabulary}) : super(key: key);
+  EditWord({Key? key, required this.vocabulary, required this.word})
+      : super(key: key);
   static String title = 'Edit the Word';
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:words/edit_word.dart';
 import 'package:words/vocabulary.dart';
-import 'package:words/word.dart';
-
 import 'constants.dart';
 
 // ignore: must_be_immutable
@@ -68,7 +66,8 @@ class _WordsState extends State<Words> {
                                 onPressed: () {
                                   Route route =
                                       MaterialPageRoute(builder: (context) {
-                                    return EditWord(vocabulary: vocabulary);
+                                    return EditWord(
+                                        vocabulary: vocabulary, word: word);
                                   });
                                   Navigator.push(context, route);
                                 },
