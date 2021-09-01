@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:words/edit_word.dart';
 import 'package:words/vocabulary.dart';
+import 'package:words/word.dart';
 
 import 'constants.dart';
 
@@ -63,7 +65,13 @@ class _WordsState extends State<Words> {
                           Row(
                             children: [
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Route route =
+                                      MaterialPageRoute(builder: (context) {
+                                    return EditWord(vocabulary: vocabulary);
+                                  });
+                                  Navigator.push(context, route);
+                                },
                                 icon: const Icon(
                                   Icons.edit,
                                   color: kButtonColor,
@@ -71,7 +79,9 @@ class _WordsState extends State<Words> {
                                 iconSize: 20,
                               ),
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  showAlertDialog(context, word);
+                                },
                                 icon: const Icon(
                                   Icons.delete,
                                   color: kButtonColor,
@@ -88,6 +98,41 @@ class _WordsState extends State<Words> {
           },
         ),
       ),
+    );
+  }
+
+  void showAlertDialog(BuildContext context, var word) {
+    Widget okButton = TextButton(
+      child: const Text("OK"),
+      onPressed: () {
+        setState(() {
+          vocabulary.deleteWord(word);
+        });
+        Navigator.of(context).pop();
+      },
+    );
+
+    Widget cancelButton = TextButton(
+      child: const Text("Cancel"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    AlertDialog alert = AlertDialog(
+      title: const Text("Warning!"),
+      content: const Text("Do you want to delete this word?"),
+      actions: [
+        okButton,
+        cancelButton,
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }

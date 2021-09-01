@@ -113,7 +113,11 @@ class _LearnWordState extends State<LearnWord> {
                 primary: kButtonColor,
                 side: const BorderSide(color: kButtonColor),
               ),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  vocabulary.carryToLearned();
+                });
+              },
               icon: const Icon(Icons.save),
               label: const Text('Learned'),
             ),
