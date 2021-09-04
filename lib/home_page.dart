@@ -8,6 +8,7 @@ import 'package:words/test_yourself.dart';
 import 'package:words/theme.dart';
 import 'package:words/vocabulary.dart';
 import 'package:words/words_ui.dart';
+import 'package:share/share.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
@@ -50,7 +51,12 @@ class HomePage extends StatelessWidget {
           // ),
           actions: <Widget>[
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Share.share(
+                    'Check out my Vocabulary Learning App - WordCards - '
+                    'https://drive.google.com/file/d/1B_PIBBB4yfCJwieF1F'
+                    'c9jCvKOhAr1BpA/view?usp=sharing');
+              },
               icon: const Icon(Icons.share),
             ),
             IconButton(
@@ -117,16 +123,6 @@ class HomePage extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(left: 18),
-                      // // alignment: Alignment.bottomLeft,
-                      // padding: const EdgeInsets.symmetric(
-                      //   vertical: 1,
-                      //   horizontal: 8,
-                      // ),
-                      // decoration: BoxDecoration(
-                      //   // color: kButtonColor,
-                      //   border: Border.all(color: kButtonColor),
-                      //   borderRadius: BorderRadius.circular(200),
-                      // ),
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                           textStyle: const TextStyle(
@@ -146,8 +142,8 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () async {
-                          commandLaunch(
-                              'mailto:fa.softec@gmail.com?subject=Word%20Card%20Feedback&body=Hi%20WC%20Developer,');
+                          commandLaunch('mailto:fa.softec@gmail.com?subject='
+                              'Word%20Card%20Feedback&body=Hi%20WC%20Developer,');
                         },
                       ),
                     ),
