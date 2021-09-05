@@ -1,28 +1,20 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import 'package:words/question_card.dart';
+import 'package:words/question_controller.dart';
 import 'package:words/vocabulary.dart';
-
 import 'constants.dart';
 
 // ignore: must_be_immutable
-class Testyourself extends StatefulWidget {
+class Quiz extends StatelessWidget {
   Vocabulary vocabulary;
-  Testyourself({Key? key, required this.vocabulary}) : super(key: key);
+  Quiz({Key? key, required this.vocabulary}) : super(key: key);
 
-  @override
-  _TestyourselfState createState() =>
-      // ignore: no_logic_in_create_state
-      _TestyourselfState(vocabulary: vocabulary);
-}
-
-class _TestyourselfState extends State<Testyourself> {
-  Vocabulary vocabulary;
-  _TestyourselfState({required this.vocabulary});
   final String _title = 'Test Yourself';
 
   @override
   Widget build(BuildContext context) {
+    QuestionController _questionController = Get.put(QuestionController());
     return Scaffold(
       backgroundColor: Colors.teal,
       appBar: myAppBar(_title),
@@ -30,18 +22,22 @@ class _TestyourselfState extends State<Testyourself> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.only(top: 16.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 16.0),
               child: Text.rich(
                 TextSpan(
-                  text: "Question 1",
-                  style: TextStyle(
+                  text: "Question ${vocabulary.getIndex() + 1}",
+                  style: const TextStyle(
                     fontSize: 32,
                     fontFamily: 'Baloo',
                   ),
                   children: [
                     TextSpan(
-                      text: "/10",
+                      text: "/${vocabulary.size()}",
+                      style: const TextStyle(
+                        fontSize: 28,
+                        fontFamily: 'Baloo',
+                      ),
                     ),
                   ],
                 ),
@@ -56,9 +52,13 @@ class _TestyourselfState extends State<Testyourself> {
             ),
             Expanded(
               child: PageView.builder(
-                itemBuilder: (context, index) =>
-                    QuestionCard(vocab: vocabulary),
-              ),
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: _questionController.pageController,
+                  itemCount: vocabulary.size(),
+                  itemBuilder: (context, index) {
+                    vocabulary.nextIndex();
+                    return QuestionCard(vocab: vocabulary);
+                  }),
             ),
           ],
         ),

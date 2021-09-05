@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:words/constants.dart';
-import 'package:words/new_word.dart';
 import 'package:words/vocabulary.dart';
 import 'package:words/word.dart';
 
+// ignore: must_be_immutable
 class EditWord extends StatelessWidget {
   Vocabulary vocabulary;
   Word word;

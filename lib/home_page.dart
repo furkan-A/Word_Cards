@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:words/add_word.dart';
 import 'package:words/constants.dart';
 import 'package:words/learn_words.dart';
-import 'package:words/test_yourself.dart';
+import 'package:words/quiz_screen.dart';
 import 'package:words/theme.dart';
 import 'package:words/vocabulary.dart';
 import 'package:words/words_ui.dart';
@@ -98,7 +98,7 @@ class HomePage extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     Route route = MaterialPageRoute(builder: (context) {
-                      return Testyourself(vocabulary: vocab);
+                      return Quiz(vocabulary: vocab);
                     });
                     Navigator.push(context, route);
                   },
@@ -156,27 +156,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-// if mail app can't open show alert dialog
-  void showNoMailAppsDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text("Open Mail App"),
-          content: const Text("No mail apps installed"),
-          actions: <Widget>[
-            TextButton(
-              child: const Text("OK"),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            )
-          ],
-        );
-      },
     );
   }
 }

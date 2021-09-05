@@ -50,6 +50,9 @@ TextStyle appBarStyle = const TextStyle(
 
 const kTextColor = Colors.black;
 const kButtonColor = Colors.teal;
+const kGreenColor = Colors.green;
+const kRedColor = Colors.red;
+const kGreyColor = Colors.grey;
 
 AppBar myAppBar(String title) => AppBar(
       elevation: 0,

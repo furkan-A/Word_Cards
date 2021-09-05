@@ -1,6 +1,8 @@
 import 'dart:math';
-
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:words/question_controller.dart';
+import 'package:words/score_screen.dart';
 import 'package:words/vocabulary.dart';
 
 import 'constants.dart';
@@ -18,6 +20,7 @@ class QuestionCard extends StatelessWidget {
   List<Option> randomOptions = [];
   Random rnd = Random();
 
+  QuestionController _controller = Get.put(QuestionController());
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -32,6 +35,7 @@ class QuestionCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Spacer(flex: 2),
             Text(
               vocab.getKey(),
               style: wordStyle,
@@ -39,40 +43,61 @@ class QuestionCard extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            Option(text: vocab.getRandomMean(), press: () {}),
-            Option(text: vocab.getMean(), press: () {}),
-            Option(text: vocab.getRandomMean(), press: () {}),
-            Option(text: vocab.getRandomMean(), press: () {}),
+            getOption(0),
+            getOption(1),
+            getOption(2),
+            getOption(3),
+            const Spacer(flex: 1),
+            InkWell(
+              onTap: () {
+                Route route = MaterialPageRoute(builder: (context) {
+                  return ScoreScreen(score: _controller.numOfCorrectAns);
+                });
+                Navigator.push(context, route);
+              },
+              child: createButton("Finish"),
+            ),
+            const SizedBox(height: 4)
           ],
         ),
       ),
     );
   }
 
-  // void createOptions() {
-  //   options.clear();
-  //   Option opTrue = Option(
-  //     text: vocab.getMean(),
-  //     press: () {},
-  //   );
-  //   options.add(opTrue);
-  //   for (int i = 0; i < 3; i++) {
-  //     Option opFalse = Option(
-  //       text: vocab.getRandomMean(),
-  //       press: () {},
-  //     );
-  //     options.add(opFalse);
-  //   }
-  // }
+  void createOptions() {
+    options.clear();
+    Option opTrue = Option(
+      text: vocab.getMean(),
+      isTrue: true,
+      press: () {
+        _controller.checkAnswer(true, vocab.size());
+      },
+    );
+    options.add(opTrue);
+    for (int i = 0; i < 3; i++) {
+      Option opFalse = Option(
+        text: vocab.getRandomMean(),
+        press: () {
+          _controller.checkAnswer(false, vocab.size());
+        },
+        isTrue: false,
+      );
+      options.add(opFalse);
+    }
+  }
 
-  // List<Option> pickRandomOption() {
-  //   createOptions();
-  //   Option option;
-  //   for (int i = 0; i < options.length; i++) {
-  //     option = options[rnd.nextInt(options.length)];
-  //     randomOptions.add(option);
-  //     options.remove(option);
-  //   }
-  //   return randomOptions;
-  // }
+  List<Option> pickRandomOption() {
+    createOptions();
+    Option option;
+    for (int i = 0; i < 4; i++) {
+      option = options[rnd.nextInt(options.length)];
+      randomOptions.add(option);
+      options.remove(option);
+    }
+    return randomOptions;
+  }
+
+  Option getOption(int index) {
+    return pickRandomOption()[index];
+  }
 }
