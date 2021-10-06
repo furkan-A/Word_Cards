@@ -27,9 +27,11 @@ class QuestionController extends GetxController
 
   int _numOfCorrectAns = 0;
   int get numOfCorrectAns => _numOfCorrectAns;
+  int _numOfIncorrectAns = 0;
+  int get numOfIncorrectAns => _numOfIncorrectAns;
 
-  RxInt _questionNumber = 1.obs;
-  RxInt get questionNumber => this._questionNumber;
+  final RxInt _questionNumber = 1.obs;
+  RxInt get questionNumber => _questionNumber;
 
   @override
   void onInit() {
@@ -51,6 +53,8 @@ class QuestionController extends GetxController
     _questionIndex++;
     if (isCorrect) {
       _numOfCorrectAns++;
+    } else {
+      _numOfIncorrectAns++;
     }
     update();
     // user select an answer after 3s it will go to next question

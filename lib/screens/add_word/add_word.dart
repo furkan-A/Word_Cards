@@ -29,7 +29,7 @@ class AddWord extends StatelessWidget {
                 children: [
                   const SizedBox(height: 48),
                   Text(
-                    'Write a word down below \nyou wanna learn',
+                    'Write a word down below \nyou want to learn',
                     style: wordStyle2,
                     textAlign: TextAlign.center,
                   ),

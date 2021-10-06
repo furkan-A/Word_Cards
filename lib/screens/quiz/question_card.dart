@@ -2,25 +2,34 @@ import 'dart:math';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:words/screens/quiz/question_controller.dart';
-import 'package:words/screens/quiz/score_screen.dart';
+// import 'package:words/screens/quiz/score_screen.dart';
 import 'package:words/models/vocabulary.dart';
 
 import '../../constants.dart';
 import 'option.dart';
 
 // ignore: must_be_immutable
-class QuestionCard extends StatelessWidget {
+class QuestionCard extends StatefulWidget {
   QuestionCard({
     Key? key,
     required this.vocab,
   }) : super(key: key);
 
   final Vocabulary vocab;
+
+  @override
+  State<QuestionCard> createState() => _QuestionCardState();
+}
+
+class _QuestionCardState extends State<QuestionCard> {
   List<Option> options = [];
+
   List<Option> randomOptions = [];
+
   Random rnd = Random();
 
   QuestionController _controller = Get.put(QuestionController());
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -35,9 +44,9 @@ class QuestionCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(flex: 2),
+            // const Spacer(flex: 1),
             Text(
-              vocab.getKey(),
+              widget.vocab.getKey(),
               style: wordStyle,
             ),
             const SizedBox(
@@ -47,17 +56,7 @@ class QuestionCard extends StatelessWidget {
             getOption(1),
             getOption(2),
             getOption(3),
-            const Spacer(flex: 1),
-            InkWell(
-              onTap: () {
-                Route route = MaterialPageRoute(builder: (context) {
-                  return ScoreScreen(score: _controller.numOfCorrectAns);
-                });
-                Navigator.push(context, route);
-              },
-              child: createButton("Finish"),
-            ),
-            const SizedBox(height: 4)
+            // const Spacer(flex: 1),
           ],
         ),
       ),
@@ -67,18 +66,22 @@ class QuestionCard extends StatelessWidget {
   void createOptions() {
     options.clear();
     Option opTrue = Option(
-      text: vocab.getMean(),
+      text: widget.vocab.getMean(),
       isTrue: true,
       press: () {
-        _controller.checkAnswer(true, vocab.size());
+        setState(() {
+          _controller.checkAnswer(true, widget.vocab.size());
+        });
       },
     );
     options.add(opTrue);
     for (int i = 0; i < 3; i++) {
       Option opFalse = Option(
-        text: vocab.getRandomMean(),
+        text: widget.vocab.getRandomMean(),
         press: () {
-          _controller.checkAnswer(false, vocab.size());
+          setState(() {
+            _controller.checkAnswer(false, widget.vocab.size());
+          });
         },
         isTrue: false,
       );

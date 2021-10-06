@@ -6,6 +6,7 @@ ThemeData theme() {
     // scaffoldBackgroundColor: Colors.white12,
     fontFamily: 'Baloo',
     appBarTheme: appBarTheme(),
+
     textTheme: textTheme(),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
