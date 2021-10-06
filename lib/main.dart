@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:words/home_page.dart';
+import 'package:words/screens/home/home_page.dart';
 // import 'package:words/launch_screen.dart';
 
 void main() {

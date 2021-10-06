@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:words/edit_word.dart';
-import 'package:words/vocabulary.dart';
-import 'constants.dart';
+import 'package:words/screens/edit_word/edit_word.dart';
+import 'package:words/models/vocabulary.dart';
+import '../../constants.dart';
 
 // ignore: must_be_immutable
 class Words extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:words/new_word.dart';
-import 'package:words/vocabulary.dart';
+import 'package:words/screens/add_word/new_word.dart';
+import 'package:words/models/vocabulary.dart';
 
-import 'constants.dart';
+import '../../constants.dart';
 
 // ignore: must_be_immutable
 class AddWord extends StatelessWidget {

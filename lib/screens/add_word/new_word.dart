@@ -1,9 +1,9 @@
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
-import 'package:words/vocabulary.dart';
-import 'package:words/word.dart';
+import 'package:words/models/vocabulary.dart';
+import 'package:words/models/word.dart';
 
-import 'constants.dart';
+import '../../constants.dart';
 
 // ignore: must_be_immutable
 class NewWord extends StatefulWidget {

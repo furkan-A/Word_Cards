@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 import 'package:words/constants.dart';
-import 'package:words/question_controller.dart';
+import 'package:words/screens/quiz/question_controller.dart';
 
 // ignore: must_be_immutable
 class Option extends StatelessWidget {

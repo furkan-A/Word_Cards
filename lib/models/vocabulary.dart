@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:words/word.dart';
+import 'package:words/models/word.dart';
 
 class Vocabulary {
   Random rnd = Random();

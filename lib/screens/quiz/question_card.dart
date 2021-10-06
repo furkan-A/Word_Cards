@@ -1,11 +1,11 @@
 import 'dart:math';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:words/question_controller.dart';
-import 'package:words/score_screen.dart';
-import 'package:words/vocabulary.dart';
+import 'package:words/screens/quiz/question_controller.dart';
+import 'package:words/screens/quiz/score_screen.dart';
+import 'package:words/models/vocabulary.dart';
 
-import 'constants.dart';
+import '../../constants.dart';
 import 'option.dart';
 
 // ignore: must_be_immutable

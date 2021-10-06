@@ -2,8 +2,8 @@ import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
-import 'package:words/score_screen.dart';
-import 'package:words/word.dart';
+import 'package:words/screens/quiz/score_screen.dart';
+import 'package:words/models/word.dart';
 
 class QuestionController extends GetxController
     with SingleGetTickerProviderMixin {
@@ -28,8 +28,8 @@ class QuestionController extends GetxController
   int _numOfCorrectAns = 0;
   int get numOfCorrectAns => _numOfCorrectAns;
 
-  // RxInt _questionNumber = 1.obs;
-  // RxInt get questionNumber => this._questionNumber;
+  RxInt _questionNumber = 1.obs;
+  RxInt get questionNumber => this._questionNumber;
 
   @override
   void onInit() {
@@ -70,4 +70,8 @@ class QuestionController extends GetxController
 
     }
   }
+
+  // void updateTheQnNum(int index) {
+  //   _questionNumber.value = index + 1;
+  // }
 }

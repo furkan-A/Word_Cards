@@ -1,13 +1,13 @@
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:words/add_word.dart';
+import 'package:words/screens/add_word/add_word.dart';
 import 'package:words/constants.dart';
-import 'package:words/learn_words.dart';
-import 'package:words/quiz_screen.dart';
+import 'package:words/screens/learn/learn_words.dart';
+import 'package:words/screens/quiz/quiz_screen.dart';
 import 'package:words/theme.dart';
-import 'package:words/vocabulary.dart';
-import 'package:words/words_ui.dart';
+import 'package:words/models/vocabulary.dart';
+import 'package:words/screens/words/words_ui.dart';
 import 'package:share/share.dart';
 
 // ignore: must_be_immutable

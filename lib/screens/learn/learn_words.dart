@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:words/constants.dart';
 
-import 'package:words/vocabulary.dart';
+import 'package:words/models/vocabulary.dart';
 import 'package:flip_card/flip_card.dart';
 
 // ignore: must_be_immutable

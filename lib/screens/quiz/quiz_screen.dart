@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:words/question_card.dart';
-import 'package:words/question_controller.dart';
-import 'package:words/vocabulary.dart';
-import 'constants.dart';
+import 'package:words/screens/quiz/question_card.dart';
+import 'package:words/screens/quiz/question_controller.dart';
+import 'package:words/models/vocabulary.dart';
+import '../../constants.dart';
 
 // ignore: must_be_immutable
 class Quiz extends StatelessWidget {
@@ -26,7 +26,8 @@ class Quiz extends StatelessWidget {
               padding: const EdgeInsets.only(top: 16.0),
               child: Text.rich(
                 TextSpan(
-                  text: "Question ${vocabulary.getIndex() + 1}",
+                  text:
+                      "Question ${_questionController.questionNumber.value}", // vocabulary.getIndex() + 1}",
                   style: const TextStyle(
                     fontSize: 32,
                     fontFamily: 'Baloo',
@@ -54,6 +55,7 @@ class Quiz extends StatelessWidget {
               child: PageView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   controller: _questionController.pageController,
+                  // onPageChanged: _questionController.updateTheQnNum,
                   itemCount: vocabulary.size(),
                   itemBuilder: (context, index) {
                     vocabulary.nextIndex();
