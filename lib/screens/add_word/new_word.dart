@@ -38,26 +38,34 @@ class _NewWordState extends State<NewWord> {
           const SizedBox(height: 8),
           buildTextFormField('Description'),
           const SizedBox(height: 24),
-          TextButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                // process
-                newWord = Word(key: key, mean: mean, desc: desc);
-                vocabulary.addNewWord(newWord);
+          FractionallySizedBox(
+            widthFactor: 0.5,
+            child: ElevatedButton(
+              child: FittedBox(
+                child: Text(
+                  'Add - Save',
+                  style: buttonStyle,
+                ),
+              ),
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  // process
+                  newWord = Word(key: key, mean: mean, desc: desc);
+                  vocabulary.addNewWord(newWord);
 
-                // if word is successfully added then write toast message.
-                // ignore: deprecated_member_use
-                Scaffold.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('The word is added!'),
-                  ),
-                );
-                // after snackbar clear the form fields
-                _formKey.currentState!.reset();
-              }
-            },
-            child: createButton('Add - Save'),
-            // style: ButtonStyle(),
+                  // if word is successfully added then write toast message.
+                  // ignore: deprecated_member_use
+                  Scaffold.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('The word is added!'),
+                    ),
+                  );
+                  // after snackbar clear the form fields
+                  _formKey.currentState!.reset();
+                }
+              },
+              style: kButtonStyle(),
+            ),
           ),
         ],
       ),
@@ -80,19 +88,19 @@ class _NewWordState extends State<NewWord> {
       decoration: InputDecoration(
         labelText: label,
         // hintText: "Enter your word",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 42,
           vertical: 20,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: kTextColor),
+          borderRadius: BorderRadius.circular(22),
+          borderSide: const BorderSide(color: kDarkTextColor),
           gapPadding: 10,
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: const BorderSide(color: kTextColor),
+          borderRadius: BorderRadius.circular(22),
+          borderSide: const BorderSide(color: kDarkTextColor),
           gapPadding: 10,
         ),
 

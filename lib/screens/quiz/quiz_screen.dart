@@ -23,8 +23,8 @@ class _QuizState extends State<Quiz> {
     QuestionController _questionController = Get.put(QuestionController());
 
     return Scaffold(
-      backgroundColor: Colors.teal,
-      appBar: myAppBar(_title),
+      // backgroundColor: Colors.teal,
+      appBar: AppBar(title: Text(_title)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -107,16 +107,14 @@ class _QuizState extends State<Quiz> {
                     return ScoreScreen(
                         score: _questionController.numOfCorrectAns);
                   });
+
                   Navigator.push(context, route);
                 },
-                // child: const Text("Finish"),
-
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.white),
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0))),
                 ),
-
                 child: const Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Text(

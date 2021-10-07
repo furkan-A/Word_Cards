@@ -24,8 +24,8 @@ class _LearnWordState extends State<LearnWord> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(
-        _title,
+      appBar: AppBar(
+        title: Text(_title),
       ),
       body: Center(
         child: Column(
@@ -80,28 +80,46 @@ class _LearnWordState extends State<LearnWord> {
             ),
             Expanded(
               flex: 1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        vocabulary.previousIndex();
-                      });
-                    },
-                    child: createButton('Prev'),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        vocabulary.nextIndex();
-                      });
-                    },
-                    child: createButton('Next'),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        child: FittedBox(
+                          child: Text(
+                            'Prev',
+                            style: buttonStyle,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            vocabulary.previousIndex();
+                          });
+                        },
+                        style: kButtonStyle(),
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    Expanded(
+                      child: ElevatedButton(
+                        child: FittedBox(
+                          child: Text(
+                            'Next',
+                            style: buttonStyle,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            vocabulary.nextIndex();
+                          });
+                        },
+                        style: kButtonStyle(),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             OutlinedButton.icon(

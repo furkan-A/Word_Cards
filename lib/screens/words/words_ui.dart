@@ -20,7 +20,9 @@ class _WordsState extends State<Words> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(_title),
+      appBar: AppBar(
+        title: Text(_title),
+      ),
       body: Center(
         child: ListView.builder(
           padding: const EdgeInsets.all(12),

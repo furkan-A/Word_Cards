@@ -1,8 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+const kTextColor = Colors.white;
+const kDarkTextColor = Colors.black;
+const kButtonColor = Colors.teal;
+const kDarkButtonColor = Colors.orange;
+const kMainColor = Colors.teal;
+const kGreenColor = Colors.green;
+const kRedColor = Colors.red;
+const kGreyColor = Colors.grey;
+const kWhiteColor = Colors.white;
+const kBlackColor = Colors.black;
+const kBackgroundColor = Colors.white;
+const kDarkBackgroundColor = Colors.grey;
+
+ButtonStyle kButtonStyle() {
+  return ButtonStyle(
+    padding: MaterialStateProperty.all(const EdgeInsets.all(8)),
+    // backgroundColor: MaterialStateProperty.all(kMainColor),
+    elevation: MaterialStateProperty.all(1),
+    // foregroundColor: MaterialStateProperty.all(kTextColor),
+    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24.0),
+      ),
+    ),
+  );
+}
+
 TextStyle buttonStyle = const TextStyle(
-    color: Colors.black,
     fontSize: 18,
     fontFamily: 'Baloo',
     fontWeight: FontWeight.bold,
@@ -47,12 +73,6 @@ TextStyle appBarStyle = const TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 22,
     letterSpacing: 0.2);
-
-const kTextColor = Colors.black;
-const kButtonColor = Colors.teal;
-const kGreenColor = Colors.green;
-const kRedColor = Colors.red;
-const kGreyColor = Colors.grey;
 
 AppBar myAppBar(String title) => AppBar(
       elevation: 0,
